@@ -32,7 +32,7 @@ distros = [
 distro_details = {
     void: {
         name: "Void Linux",
-        description: "Void Linux is an independent distribution, developed entirely by volunteers.<br/>  It uses understandable tools like runit and xbps, provides rolling-release updates, and provides ways to get involved.",
+        description: "Void Linux is an independent distribution, developed entirely by volunteers.<br/>  It uses understandable tools like runit and xbps, provides rolling-release updates, and welcomes involvement.",
         difficulty: 8,
         barrier_to_community: 3,
         gaming_difficulty: 6,
@@ -136,7 +136,7 @@ var questions = [
     },
     {
         question:'Party Line vs Grassroots?',
-        description:'Do you want to be able to make a difference in your distro\'s barrier_to_community?',
+        description:'Do you want to be able to make a difference in your distro\'s community?',
         next:2,
         choices:[
             {text:'I want the difficult decisions to be made for me', category:'barrier_to_community', points:1},
