@@ -229,17 +229,26 @@ function finish() {
         }
     }
 
+    var distro_array = $.map(distro_details, function(value, index) {
+        return [value];
+    });
+
     /* Find closest */
-    min = 100
-    chosen_distro = 'noobuntu'
-    for (let distro of distros){
-        if (distro_details[distro]['difference'] < min){
-            chosen_distro = distro
-            min = distro_details[distro]['difference']
+    distro_array.sort(function (a, b) {
+        if (a.difference > b.difference) {
+            return 1;
         }
-    }
+        if (a.difference < b.difference) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    });
 
     $('#container').empty()
-    $('#container').append('<h3>You are...</h3><h1>' + distro_details[chosen_distro]["name"] + '</h1><br/><br/><div id="question_description">' + distro_details[chosen_distro]['description'] + '</div>')
-    // Todo: List three other candidates
+    $('#container').append('<h3>You are...</h3><h1>' + distro_array[0]["name"] + '</h1><br/><br/><div id="question_description">' + distro_array[0]['description'] + '</div>')
+    $('#container').append('<br/><hr/><h4>Other distributions you match:</h4>')
+    for (var i = 1; i < 4; i++) {
+        $('#container').append('<h4>' + distro_array[i]["name"] + '</h4><div class="additional_description">' + distro_array[i]['description'] + '</div>')
+    }
 }
